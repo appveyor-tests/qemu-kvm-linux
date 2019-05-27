@@ -1,0 +1,14 @@
+init:
+- appveyor version
+- sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
+- sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
+
+install:
+  - sh: sudo apt-get update && sudo apt-get install qemu-kvm -y
+  - sh: wget https://people.debian.org/~aurel32/qemu/amd64/debian_squeeze_amd64_standard.qcow2
+
+test_script:
+  - sh:  grep -cw vmx /proc/cpuinfo
+#  - sh: sudo qemu-system-x86_64 -enable-kvm -hda debian_squeeze_amd64_standard.qcow2 -m 512 -curses
+
+build: off
