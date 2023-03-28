@@ -5,8 +5,8 @@ init:
 
 install:
   - sh: sudo apt-get update && sudo apt-get install qemu-kvm -y
-  - sh: wget https://people.debian.org/~aurel32/qemu/amd64/debian_squeeze_amd64_standard.qcow2
-
+#  - sh: wget https://people.debian.org/~aurel32/qemu/amd64/debian_squeeze_amd64_standard.qcow2
+  - sh: wget http://cdimage.debian.org/cdimage/openstack/9.13.42-20220706/debian-9.13.42-20220706-openstack-arm64.qcow2
 test_script:
   - sh:  grep -cw vmx /proc/cpuinfo
 #  - sh: sudo qemu-system-x86_64 -enable-kvm -hda debian_squeeze_amd64_standard.qcow2 -m 512 -curses
